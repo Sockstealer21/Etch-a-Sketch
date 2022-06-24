@@ -9,10 +9,24 @@ const contChildren = container.childNodes
 
 drawing()
 
+const randomBetween = (min, max) => min + Math.floor(Math.random() * (max - min +1));
+//const r = randomBetween(0, 255);
+//const g = randomBetween(0, 255);
+//const b = randomBetween(0, 255);
+//const rgb = `rgb(${r},${g},${b})`;
+
+const randomrbg = () => {
+    let r = randomBetween(0, 255);
+    let g = randomBetween(0, 255);
+    let b = randomBetween(0, 255);
+    let rgb = `rgb(${r},${g},${b})`;
+    return rgb
+}
+
 function drawing() {
     contChildren.forEach ((div) => {
         div.addEventListener('mouseover', () => {
-            div.style.backgroundColor = 'red';
+            div.style.backgroundColor = randomrbg()
         });
     })
 }
@@ -59,3 +73,4 @@ function newPad (){
         }
         clearing()
     }
+
