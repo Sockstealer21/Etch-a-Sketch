@@ -1,4 +1,3 @@
-
 for (let x = 0; x<256;x++){
     const drawingDivs = document.createElement('div')
     drawingDivs.setAttribute('class', 'drawingSpace');
@@ -10,10 +9,6 @@ const contChildren = container.childNodes
 drawing()
 
 const randomBetween = (min, max) => min + Math.floor(Math.random() * (max - min +1));
-//const r = randomBetween(0, 255);
-//const g = randomBetween(0, 255);
-//const b = randomBetween(0, 255);
-//const rgb = `rgb(${r},${g},${b})`;
 
 const randomrbg = () => {
     let r = randomBetween(0, 255);
@@ -23,10 +18,24 @@ const randomrbg = () => {
     return rgb
 }
 
-function drawing() {
-    contChildren.forEach ((div) => {
+
+let darken
+
+
+function blacker(){
+    if (darken === undefined){
+        darken = 100
+    }
+    darkenString =  `hsl(0, 0%, ${darken}%)`;
+    darken = darken - 10
+    return darkenString
+}
+
+
+function drawing() {0
+    contChildren.forEach ((div) => {0
         div.addEventListener('mouseover', () => {
-            div.style.backgroundColor = randomrbg()
+            div.style.backgroundColor = blacker()
         });
     })
 }
